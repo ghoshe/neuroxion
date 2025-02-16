@@ -1,7 +1,14 @@
 import React, { useState, useEffect } from 'react';
-import {Clock, CheckCircle2, Globe, Bell } from 'lucide-react';
+import { Clock, CheckCircle2, Globe, Bell } from 'lucide-react';
 
-const TimeSlot = ({ time, isSelected, isAvailable, onClick }) => (
+interface TimeSlotProps {
+  time: string;
+  isSelected: boolean;
+  isAvailable: boolean;
+  onClick: () => void;
+}
+
+const TimeSlot: React.FC<TimeSlotProps> = ({ time, isSelected, isAvailable, onClick }) => (
   <div
     className={`
       p-2 rounded-lg text-center cursor-pointer transition-all duration-300 transform hover:scale-105
@@ -14,7 +21,13 @@ const TimeSlot = ({ time, isSelected, isAvailable, onClick }) => (
   </div>
 );
 
-const MetricCard = ({ icon: Icon, value, label }) => (
+interface MetricCardProps {
+  icon: React.ElementType;
+  value: string;
+  label: string;
+}
+
+const MetricCard: React.FC<MetricCardProps> = ({ icon: Icon, value, label }) => (
   <div className="bg-gray-900 rounded-xl p-3 flex items-center space-x-3">
     <div className="bg-gradient-to-r from-red-500 to-blue-500 rounded-lg p-2">
       <Icon className="h-4 w-4 text-white" />
@@ -26,7 +39,11 @@ const MetricCard = ({ icon: Icon, value, label }) => (
   </div>
 );
 
-const BookingConfirmation = ({ isVisible }) => (
+interface BookingConfirmationProps {
+  isVisible: boolean;
+}
+
+const BookingConfirmation: React.FC<BookingConfirmationProps> = ({ isVisible }) => (
   <div className={`
     fixed inset-0 flex items-center justify-center transition-opacity duration-300
     ${isVisible ? 'opacity-100' : 'opacity-0 pointer-events-none'}
@@ -41,19 +58,18 @@ const BookingConfirmation = ({ isVisible }) => (
   </div>
 );
 
-const AutomatedScheduling = () => {
-  const [selectedTime, setSelectedTime] = useState(null);
-  const [showConfirmation, setShowConfirmation] = useState(false);
-  const [currentDay, setCurrentDay] = useState(0);
+const AutomatedScheduling: React.FC = () => {
+  const [selectedTime, setSelectedTime] = useState<string | null>(null);
+  const [showConfirmation, setShowConfirmation] = useState<boolean>(false);
+  const [currentDay, setCurrentDay] = useState<number>(0);
 
-  const days = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri'];
-  const timeSlots = [
+  const days: string[] = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri'];
+  const timeSlots: string[] = [
     '9:00 AM', '10:00 AM', '11:00 AM', 
     '2:00 PM', '3:00 PM', '4:00 PM'
   ];
 
-  // Simulate different availability patterns for each day
-  const getAvailability = (dayIndex, timeIndex) => {
+  const getAvailability = (dayIndex: number, timeIndex: number): boolean => {
     const random = (dayIndex * timeIndex + timeIndex) % 3;
     return random !== 0;
   };
@@ -65,7 +81,7 @@ const AutomatedScheduling = () => {
     return () => clearInterval(interval);
   }, [days.length]);
 
-  const handleTimeSelect = (time) => {
+  const handleTimeSelect = (time: string): void => {
     setSelectedTime(time);
     setShowConfirmation(true);
     setTimeout(() => {
