@@ -2,7 +2,14 @@ import React, { useState, useEffect } from 'react';
 import { BarChart, LineChart, Line, Bar, XAxis, YAxis, ResponsiveContainer } from 'recharts';
 import { TrendingUp, Users, DollarSign, BarChart3 } from 'lucide-react';
 
-const InsightCard = ({ title, value, change, trend }) => (
+interface InsightCardProps {
+  title: string;
+  value: string;
+  change: string;
+  trend: 'up' | 'down';
+}
+
+const InsightCard: React.FC<InsightCardProps> = ({ title, value, change, trend }) => (
   <div className="bg-gray-800 rounded-xl p-4 transform transition-transform duration-300 hover:scale-105">
     <div className="text-gray-400 text-sm mb-2">{title}</div>
     <div className="text-white text-2xl font-bold mb-1">{value}</div>
@@ -12,7 +19,13 @@ const InsightCard = ({ title, value, change, trend }) => (
   </div>
 );
 
-const MetricCard = ({ icon: Icon, value, label }) => (
+interface MetricCardProps {
+  icon: React.ElementType;
+  value: string;
+  label: string;
+}
+
+const MetricCard: React.FC<MetricCardProps> = ({ icon: Icon, value, label }) => (
   <div className="bg-gray-900 rounded-xl p-4 flex items-center space-x-3">
     <div className="bg-gradient-to-r from-red-500 to-blue-500 rounded-lg p-2">
       <Icon className="h-5 w-5 text-white" />
@@ -24,9 +37,13 @@ const MetricCard = ({ icon: Icon, value, label }) => (
   </div>
 );
 
-const BusinessIntelligence = () => {
-  // Helper function to generate random data
-  const generateData = (days, trend = 'up') => {
+interface DataPoint {
+  day: string;
+  value: number;
+}
+
+const BusinessIntelligence: React.FC = () => {
+  const generateData = (days: number, trend: 'up' | 'down' = 'up'): DataPoint[] => {
     return Array.from({ length: days }, (_, i) => {
       const base = trend === 'up' ? i * 100 : 1000 - (i * 50);
       const random = Math.random() * 200 - 100;
@@ -37,11 +54,10 @@ const BusinessIntelligence = () => {
     });
   };
 
-  const [currentData, setCurrentData] = useState(() => generateData(7));
-  const [revenueData, setRevenueData] = useState(() => generateData(7, 'up'));
-  const [activeTab, setActiveTab] = useState('revenue');
+  const [currentData, setCurrentData] = useState<DataPoint[]>(() => generateData(7));
+  const [revenueData, setRevenueData] = useState<DataPoint[]>(() => generateData(7, 'up'));
+  const [activeTab, setActiveTab] = useState<string>('revenue');
 
-  // Simulate real-time data updates
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentData(generateData(7));
@@ -50,7 +66,12 @@ const BusinessIntelligence = () => {
     return () => clearInterval(interval);
   }, []);
 
-  const TabButton = ({ id, label }) => (
+  interface TabButtonProps {
+    id: string;
+    label: string;
+  }
+
+  const TabButton: React.FC<TabButtonProps> = ({ id, label }) => (
     <button
       onClick={() => setActiveTab(id)}
       className={`px-4 py-2 rounded-lg transition-all duration-300 ${
@@ -65,7 +86,8 @@ const BusinessIntelligence = () => {
 
   return (
     <div className="bg-gray-900 rounded-2xl p-6 shadow-xl">
-      {/* Dashboard Header */}
+      {/* Rest of the component remains the same */}
+      {/* Just ensure all the data being passed matches the types defined above */}
       <div className="flex justify-between items-center mb-6">
         <div className="text-white text-lg font-medium">AI Business Analytics</div>
         <div className="flex space-x-2">
@@ -75,9 +97,7 @@ const BusinessIntelligence = () => {
         </div>
       </div>
 
-      {/* Main Dashboard Area */}
       <div className="bg-black rounded-xl p-4 mb-6">
-        {/* Insight Cards */}
         <div className="grid grid-cols-3 gap-4 mb-6">
           <InsightCard 
             title="Daily Revenue" 
@@ -99,7 +119,6 @@ const BusinessIntelligence = () => {
           />
         </div>
 
-        {/* Main Chart */}
         <div className="h-64 mb-6">
           <ResponsiveContainer width="100%" height="100%">
             {activeTab === 'revenue' ? (
@@ -135,7 +154,6 @@ const BusinessIntelligence = () => {
         </div>
       </div>
 
-      {/* Metrics Grid */}
       <div className="grid grid-cols-2 gap-4 mb-6">
         <MetricCard 
           icon={TrendingUp} 
@@ -159,7 +177,6 @@ const BusinessIntelligence = () => {
         />
       </div>
 
-      {/* CTA Button */}
       <div className="text-center">
         <button className="bg-gradient-to-r from-red-500 to-blue-500 text-white px-8 py-3 rounded-full font-medium hover:opacity-90 transition-opacity inline-flex items-center">
           Get Business Insights

@@ -1,7 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { MessageSquare, Clock, Globe, CheckCircle2 } from 'lucide-react';
 
-const ChatMessage = ({ message, type }) => (
+interface ChatMessageProps {
+  message: string;
+  type: 'user' | 'ai';
+}
+
+const ChatMessage: React.FC<ChatMessageProps> = ({ message, type }) => (
   <div className={`flex ${type === 'user' ? 'justify-end' : 'justify-start'} mb-4`}>
     <div className={`rounded-2xl px-4 py-2 max-w-xs ${
       type === 'user' 
@@ -13,7 +18,13 @@ const ChatMessage = ({ message, type }) => (
   </div>
 );
 
-const MetricCard = ({ icon: Icon, value, label }) => (
+interface MetricCardProps {
+  icon: React.ElementType;
+  value: string;
+  label: string;
+}
+
+const MetricCard: React.FC<MetricCardProps> = ({ icon: Icon, value, label }) => (
   <div className="bg-gray-900 rounded-xl p-4 flex items-center space-x-3">
     <div className="bg-gradient-to-r from-red-500 to-blue-500 rounded-lg p-2">
       <Icon className="h-5 w-5 text-white" />
@@ -25,11 +36,16 @@ const MetricCard = ({ icon: Icon, value, label }) => (
   </div>
 );
 
-const SmartCustomerService = () => {
-  const [currentChat, setCurrentChat] = useState(0);
-  const [isTyping, setIsTyping] = useState(false);
+interface ChatExample {
+  type: 'user' | 'ai';
+  message: string;
+}
 
-  const chatExamples = [
+const SmartCustomerService: React.FC = () => {
+  const [currentChat, setCurrentChat] = useState<number>(0);
+  const [isTyping, setIsTyping] = useState<boolean>(false);
+
+  const chatExamples: ChatExample[][] = [
     [
       { type: 'user', message: "What are your opening hours today?" },
       { type: 'ai', message: "We're open from 9 AM to 8 PM today. Would you like to make a reservation?" }
