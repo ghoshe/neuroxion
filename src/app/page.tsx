@@ -8,7 +8,7 @@ import AutomatedScheduling from './automated-scheduling';
 import BusinessIntelligence from './business-intelligence';
 
 const Logo = () => (
-  <div className="w-16 h-16 relative">
+  <div className="w-11 h-11 relative">
     <div className="absolute inset-0">
       <svg viewBox="0 0 100 100" className="w-full h-full">
         <circle 
@@ -136,7 +136,7 @@ const Hero = () => (
 const Features = () => (
   <div id="features">
     {/* Smart Customer Service Section */}
-    <div id="customer-service" className="py-24 bg-[#0A0A0A]"></div>
+    <div id="customer-service" className="py-2 bg-[#0A0A0A]"></div>
     <div className="py-24 bg-[#0A0A0A]">
       <div className="max-w-7xl mx-auto px-6">
         <div className="text-center mb-16">
@@ -150,7 +150,7 @@ const Features = () => (
     </div>
 
     {/* Automated Scheduling Section */}
-    <div id="scheduling" className="py-24 bg-[#111]"></div>
+    <div id="scheduling" className="py-2 bg-[#111]"></div>
     <div className="py-24 bg-[#111]">
       <div className="max-w-7xl mx-auto px-6">
         <div className="text-center mb-16">
@@ -164,7 +164,7 @@ const Features = () => (
     </div>
 
     {/* Business Intelligence Section */}
-    <div id="analytics" className="py-24 bg-[#0A0A0A]"></div>
+    <div id="analytics" className="py-2 bg-[#0A0A0A]"></div>
     <div className="py-24 bg-[#0A0A0A]">
       <div className="max-w-7xl mx-auto px-6">
         <div className="text-center mb-16">

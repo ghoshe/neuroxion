@@ -54,14 +54,16 @@ const BusinessIntelligence: React.FC = () => {
     });
   };
 
-  const [currentData, setCurrentData] = useState<DataPoint[]>(() => generateData(7));
   const [revenueData, setRevenueData] = useState<DataPoint[]>(() => generateData(7, 'up'));
+  const [customerData, setCustomerData] = useState<DataPoint[]>(() => generateData(7, 'up'));
+  const [trendData, setTrendData] = useState<DataPoint[]>(() => generateData(7));
   const [activeTab, setActiveTab] = useState<string>('revenue');
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setCurrentData(generateData(7));
-      setRevenueData(generateData(7, 'up'));
+      setRevenueData(generateData(7, 'up')); 
+      setCustomerData(generateData(7, 'up'));
+      setTrendData(generateData(7));
     }, 5000);
     return () => clearInterval(interval);
   }, []);
@@ -86,10 +88,8 @@ const BusinessIntelligence: React.FC = () => {
 
   return (
     <div className="bg-gray-900 rounded-2xl p-6 shadow-xl">
-      {/* Rest of the component remains the same */}
-      {/* Just ensure all the data being passed matches the types defined above */}
-      <div className="flex justify-between items-center mb-6">
-        <div className="text-white text-lg font-medium">AI Business Analytics</div>
+      <div className="flex flex-col md:flex-row justify-between items-center mb-6">
+        <div className="text-white text-lg font-medium mb-4 md:mb-0">AI Business Analytics</div>
         <div className="flex space-x-2">
           <TabButton id="revenue" label="Revenue" />
           <TabButton id="customers" label="Customers" />
@@ -98,28 +98,28 @@ const BusinessIntelligence: React.FC = () => {
       </div>
 
       <div className="bg-black rounded-xl p-4 mb-6">
-        <div className="grid grid-cols-3 gap-4 mb-6">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
           <InsightCard 
             title="Daily Revenue" 
-            value="$2,847" 
-            change="+12.5%" 
+            value={activeTab === 'revenue' ? "$2,847" : activeTab === 'customers' ? "147" : "$95"} 
+            change={activeTab === 'revenue' ? "+12.5%" : activeTab === 'customers' ? "+8.2%" : "+5.7%"}
             trend="up"
           />
           <InsightCard 
             title="New Customers" 
-            value="147" 
-            change="+8.2%" 
+            value={activeTab === 'revenue' ? "147" : activeTab === 'customers' ? "21" : "8"} 
+            change={activeTab === 'revenue' ? "+8.2%" : activeTab === 'customers' ? "+4.5%" : "+2.1%"}
             trend="up"
           />
           <InsightCard 
-            title="Avg. Order Value" 
-            value="$95" 
-            change="+5.7%" 
-            trend="up"
+            title={activeTab === 'revenue' ? "Avg. Order Value" : activeTab === 'customers' ? "Retention Rate" : "Conversion Rate"} 
+            value={activeTab === 'revenue' ? "$95" : activeTab === 'customers' ? "78%" : "3.2%"} 
+            change={activeTab === 'revenue' ? "+5.7%" : activeTab === 'customers' ? "+7.1%" : "+0.5%"}
+            trend="up" 
           />
         </div>
 
-        <div className="h-64 mb-6">
+        <div className="h-64 md:h-96 mb-6">
           <ResponsiveContainer width="100%" height="100%">
             {activeTab === 'revenue' ? (
               <LineChart data={revenueData}>
@@ -139,22 +139,40 @@ const BusinessIntelligence: React.FC = () => {
                   </linearGradient>
                 </defs>
               </LineChart>
-            ) : (
-              <BarChart data={currentData}>
+            ) : activeTab === 'customers' ? (
+              <BarChart data={customerData}>
                 <XAxis dataKey="day" stroke="#4B5563" />
                 <YAxis stroke="#4B5563" />
                 <Bar 
                   dataKey="value" 
-                  fill="url(#gradient)" 
+                  fill="url(#gradientBar)" 
                   radius={[4, 4, 0, 0]} 
                 />
+                <defs>
+                  <linearGradient id="gradientBar" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0%" stopColor="#10B981" />
+                    <stop offset="100%" stopColor="#059669" />
+                  </linearGradient>
+                </defs>               
               </BarChart>
+            ) : (
+              <LineChart data={trendData}>
+                <XAxis dataKey="day" stroke="#4B5563" />
+                <YAxis stroke="#4B5563" />
+                <Line 
+                  type="monotone" 
+                  dataKey="value"
+                  stroke="#10B981"
+                  strokeWidth={2} 
+                  dot={false}
+                />
+              </LineChart>  
             )}
           </ResponsiveContainer>
         </div>
       </div>
 
-      <div className="grid grid-cols-2 gap-4 mb-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
         <MetricCard 
           icon={TrendingUp} 
           value="93%" 
