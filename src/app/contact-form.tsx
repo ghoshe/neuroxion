@@ -64,7 +64,7 @@ const ContactForm = () => {
       company: formData.company,
       message: formData.message,
       services: Object.entries(formData.services)
-        .filter(([_, value]) => value)
+        .filter(([key, value]) => value)
         .map(([key]) => {
           switch(key) {
             case 'website': return 'SiteXion';
