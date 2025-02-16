@@ -219,7 +219,7 @@ const ContactForm = () => {
 
             {submitStatus.isSuccess && (
               <div className="bg-green-500 bg-opacity-10 border border-green-500 text-green-500 px-4 py-3 rounded-lg text-center">
-                Your message has been sent successfully! We'll get back to you soon.
+                Your message has been sent successfully! We will get back to you soon.
               </div>
             )}
             {submitStatus.error && (
