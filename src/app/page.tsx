@@ -1,7 +1,7 @@
 'use client';
 
 
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { ArrowRight, Menu, X  } from 'lucide-react';
 import SmartCustomerService from './smart-customer-service';
 import AutomatedScheduling from './automated-scheduling';

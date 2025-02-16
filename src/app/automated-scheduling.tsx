@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Calendar, Clock, CheckCircle2, Globe, Bell } from 'lucide-react';
+import {Clock, CheckCircle2, Globe, Bell } from 'lucide-react';
 
 const TimeSlot = ({ time, isSelected, isAvailable, onClick }) => (
   <div
@@ -63,7 +63,7 @@ const AutomatedScheduling = () => {
       setCurrentDay((prev) => (prev + 1) % days.length);
     }, 3000);
     return () => clearInterval(interval);
-  }, []);
+  }, [days.length]);
 
   const handleTimeSelect = (time) => {
     setSelectedTime(time);

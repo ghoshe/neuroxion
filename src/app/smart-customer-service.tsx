@@ -52,7 +52,7 @@ const SmartCustomerService = () => {
     }, 5000);
 
     return () => clearInterval(interval);
-  }, []);
+  }, [chatExamples.length]);
 
   return (
     <div className="bg-gray-900 rounded-2xl p-6 shadow-xl">
