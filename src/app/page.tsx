@@ -298,13 +298,13 @@ const Footer = () => (
         <div>
           <h4 className="text-sm font-medium mb-4">Features</h4>
           <ul className="space-y-2 text-sm text-gray-400">
-            <li className="hover:text-white transition-colors cursor-pointer">Smart Assistant</li>
-            <li className="hover:text-white transition-colors cursor-pointer">Automation</li>
-            <li className="hover:text-white transition-colors cursor-pointer">Analytics</li>
-            <li className="hover:text-white transition-colors cursor-pointer">Integrations</li>
+            <li><a href="#features" className="hover:text-white transition-colors cursor-pointer">SiteXion</a></li>
+            <li></li><a href="#customer-service"  className="hover:text-white transition-colors cursor-pointer">NeuroAssist</a>
+            <li></li><a href="#scheduling" className="hover:text-white transition-colors cursor-pointer">ChronoXion</a>
+            <li></li><a href="#analytics" className="hover:text-white transition-colors cursor-pointer">Neurolytics</a>
           </ul>
         </div>
-        <div>
+        {/*<div>
           <h4 className="text-sm font-medium mb-4">Company</h4>
           <ul className="space-y-2 text-sm text-gray-400">
             <li className="hover:text-white transition-colors cursor-pointer">About</li>
@@ -312,7 +312,7 @@ const Footer = () => (
             <li className="hover:text-white transition-colors cursor-pointer">Blog</li>
             <li className="hover:text-white transition-colors cursor-pointer">Contact</li>
           </ul>
-        </div>
+        </div>*/}
         <div>
           <h4 className="text-sm font-medium mb-4">Contact</h4>
           <ul className="space-y-2 text-sm text-gray-400">
