@@ -75,7 +75,7 @@ const Header = () => {
             <a href="#customer-service" className="text-gray-400 hover:text-white transition-colors">NeuroAssist</a>
             <a href="#scheduling" className="text-gray-400 hover:text-white transition-colors">ChronoXion</a>
             <a href="#analytics" className="text-gray-400 hover:text-white transition-colors">Neurolytics</a>
-            <a href="#contact" className="text-gray-400 hover:text-white transition-colors"></a>
+            <a href="#offer" className="text-gray-400 hover:text-white transition-colors">How It Works</a>
           </nav>
 
           {/* Mobile Menu Button */}
@@ -89,7 +89,7 @@ const Header = () => {
           </div>
 
           {/* Desktop CTA Button */}
-          <a href="#contact"  className="hidden md:block bg-gradient-to-r from-red-500 to-blue-500 text-white px-6 py-2 rounded-full text-sm font-medium hover:opacity-90 transition-opacity">
+          <a href="#contact" className="hidden md:block bg-gradient-to-r from-red-500 to-blue-500 text-white px-6 py-2 rounded-full text-sm font-medium hover:opacity-90 transition-opacity">
             Get Started
           </a>
         </div>
@@ -131,9 +131,9 @@ const Hero = () => (
             Start Free Trial
             <ArrowRight className="ml-2 h-5 w-5" />
           </a>
-          <button className="bg-gray-900 text-white px-8 py-4 rounded-full text-lg font-medium hover:bg-gray-800 transition-colors">
-            Watch Demo
-          </button>
+          <a href="#WhatWeOffer" className="bg-gray-900 text-white px-8 py-4 rounded-full text-lg font-medium hover:bg-gray-800 transition-colors">
+            Explore Products
+          </a>
         </div>
       </div>
     </div>
@@ -141,7 +141,7 @@ const Hero = () => (
 );
 
 const WhatWeOffer = () => (
-  <section id="WhatWeOffer" className="py-24 bg-[#0D0D0D]">
+  <section id="WhatWeOffer" className="py-24 bg-[#0A0A0A]">
     <div className="max-w-7xl mx-auto px-6">
       {/* Section Header */}
       <div className="text-center mb-16">
@@ -217,8 +217,8 @@ const Features = () => (
   <div id="features">
 
     {/* Website Development Section */}
-    <div id="website-development" className="py-2 bg-[#0A0A0A]"></div>
-    <div className="py-24 bg-[#0A0A0A]">
+    <div id="website-development" className="py-2 bg-[#111]"></div>
+    <div className="py-24 bg-[#111]">
       <div className="max-w-7xl mx-auto px-6">
         <div className="text-center mb-16">
           <h2 className="text-4xl font-bold mb-4 text-white">SiteXion</h2>
@@ -237,7 +237,7 @@ const Features = () => (
         <div className="text-center mb-16">
           <h2 className="text-4xl font-bold mb-4 text-white">NeuroAssist</h2>
           <p className="text-xl text-gray-400 max-w-3xl mx-auto">
-            AI-powered responses across WhatsApp, Instagram, and SMS. Handle customer inquiries 24/7 with intelligent automation.
+            AI-powered responses across WhatsApp, Instagram, and SMS. Handle customer inquiries 24/7 with intelligent automation
           </p>
         </div>
         <SmartCustomerService />
@@ -250,8 +250,8 @@ const Features = () => (
       <div className="max-w-7xl mx-auto px-6">
         <div className="text-center mb-16">
           <h2 className="text-4xl font-bold mb-4 text-white">ChronoXion</h2>
-          <p className="text-xl text-gray-400 max-w-3xl mx-auto">
-            Seamlessly manage appointments and bookings with AI that understands your business context with out schedule automation.
+          <p className="text-xl text-gray-400 max-w-4xl mx-auto">
+            Seamlessly manage appointments and bookings with AI that understands your business context with out schedule automation
           </p>
         </div>
         <AutomatedScheduling />
@@ -265,7 +265,7 @@ const Features = () => (
         <div className="text-center mb-16">
           <h2 className="text-4xl font-bold mb-4 text-white">Neurolytics</h2>
           <p className="text-xl text-gray-400 max-w-3xl mx-auto">
-            Get actionable insights from your data with AI-powered machine learning and data analytics that help you make better business decisions.
+            Get actionable insights from your data with AI-powered machine learning and data analytics that help you make better business decisions
           </p>
         </div>
         <BusinessIntelligence />
@@ -280,9 +280,9 @@ const CTA = () => (
     <div className="absolute inset-0 bg-gradient-to-r from-red-500 to-blue-500 opacity-10"></div>
     <div className="max-w-7xl mx-auto px-6 text-center relative z-10">
       <h2 className="text-4xl font-bold text-white mb-8">Ready to Transform Your Business?</h2>
-      <button className="bg-gradient-to-r from-red-500 to-blue-500 text-white px-8 py-4 rounded-full text-lg font-medium hover:opacity-90 transition-opacity">
+      <a href="#contact"  className="bg-gradient-to-r from-red-500 to-blue-500 text-white px-8 py-4 rounded-full text-lg font-medium hover:opacity-90 transition-opacity">
         Start Free Trial
-      </button>
+      </a>
     </div>
   </section>
 );

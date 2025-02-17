@@ -196,10 +196,10 @@ const BusinessIntelligence: React.FC = () => {
       </div>
 
       <div className="text-center">
-        <button className="bg-gradient-to-r from-red-500 to-blue-500 text-white px-8 py-3 rounded-full font-medium hover:opacity-90 transition-opacity inline-flex items-center">
+        <a href="#contact"  className="bg-gradient-to-r from-red-500 to-blue-500 text-white px-8 py-3 rounded-full font-medium hover:opacity-90 transition-opacity inline-flex items-center">
           Get Business Insights
           <span className="ml-2">→</span>
-        </button>
+        </a>
       </div>
     </div>
   );

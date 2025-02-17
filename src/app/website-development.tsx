@@ -41,7 +41,7 @@ const WebsiteDevelopment: React.FC = () => {
 
   // Website preview component with mock website UI
   const WebsitePreview = () => (
-    <div className="relative h-[600px] bg-[#0A0A0A] rounded-xl overflow-hidden border border-gray-800">
+    <div className="relative h-[600px] bg-[#111] rounded-xl overflow-hidden border border-gray-800">
       {websites.map((website, index) => (
         <div
           key={website.title}
@@ -54,7 +54,7 @@ const WebsiteDevelopment: React.FC = () => {
             {/* Mock Website UI */}
             <div className="bg-[#111] h-full w-full flex flex-col">
               {/* Browser Bar - Fixed at top */}
-              <div className="h-8 bg-[#0A0A0A] flex items-center px-4 space-x-2 border-b border-gray-800">
+              <div className="h-8 bg-[#111] flex items-center px-4 space-x-2 border-b border-gray-800">
                 <div className="w-3 h-3 rounded-full bg-red-500"></div>
                 <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
                 <div className="w-3 h-3 rounded-full bg-green-500"></div>
@@ -104,7 +104,7 @@ const WebsiteDevelopment: React.FC = () => {
   );
 
   return (
-    <div className="bg-black rounded-2xl p-6 shadow-xl overflow-hidden">
+    <div className="bg-gray-900 rounded-2xl p-6 shadow-xl overflow-hidden">
       <div className="grid md:grid-cols-2 gap-8 items-center">
         <WebsitePreview />
         
@@ -124,10 +124,10 @@ const WebsiteDevelopment: React.FC = () => {
             </div>
           </div>
 
-          <button className="bg-gradient-to-r from-red-500 to-blue-500 text-white px-8 py-3 rounded-full font-medium hover:opacity-90 transition-opacity inline-flex items-center">
-            Start Your Project
+          <a href="#contact"  className="bg-gradient-to-r from-red-500 to-blue-500 text-white px-8 py-3 rounded-full font-medium hover:opacity-90 transition-opacity inline-flex items-center">
+            Start Your Business
             <ArrowRight className="ml-2 h-5 w-5" />
-          </button>
+          </a>
         </div>
       </div>
     </div>

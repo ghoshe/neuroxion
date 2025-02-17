@@ -52,7 +52,7 @@ const SmartCustomerService: React.FC = () => {
     ],
     [
       { type: 'user', message: "Do you have the new collection in stock?" },
-      { type: 'ai', message: "Yes! Our Spring 2025 collection just arrived. I can show you our latest items or help you find something specific." }
+      { type: 'ai', message: "Yes! Our Spring 2025 collection just arrived. Would you like to see it?" }
     ],
     [
       { type: 'user', message: "Can I track my order #1234?" },
@@ -79,7 +79,7 @@ const SmartCustomerService: React.FC = () => {
         </div>
         <div className="space-y-4">
           {chatExamples[currentChat].map((msg, index) => (
-            <div key={index} className="transition-all duration-500 transform translate-y-0 opacity-100">
+            <div key={index} className="transition-all duration-5 transform translate-y-0 opacity-100">
               <ChatMessage {...msg} />
             </div>
           ))}

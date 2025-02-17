@@ -4,6 +4,7 @@ import { ArrowRight } from 'lucide-react';
 import emailjs from '@emailjs/browser';
 
 const ContactForm = () => {
+  
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -104,7 +105,7 @@ const ContactForm = () => {
   };
 
   return (
-    <section id="start-ai-journey" className="py-24 bg-[#0A0A0A]">
+    <section id="contact" className="py-24 bg-[#0A0A0A]">
       <div className="max-w-7xl mx-auto px-6">
         <div className="text-center mb-16">
           <h2 className="text-4xl font-bold mb-4 text-white">Start Your AI Journey</h2>

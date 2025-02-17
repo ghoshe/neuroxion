@@ -51,18 +51,20 @@ const HowItWorks: React.FC = () => {
   ];
 
   return (
-    <section className="py-24 bg-[#111]">
+    <section id="offer" className="py-24 bg-[#111]">
       <div className="max-w-7xl mx-auto px-6">
         <div className="text-center mb-16">
           <h2 className="text-4xl font-bold mb-4 text-white">How It Works</h2>
-          <p className="text-xl text-gray-400 max-w-3xl mx-auto">
-            Neuroxion simplifies business management with a seamless process from start to finish.
+          <p className="text-xl text-gray-400 max-w-5xl mx-auto">
+            Neuroxion simplifies business management with a seamless process from start to finish
           </p>
         </div>
 
+        
+
         <div className="relative">
-          {/* Connection Line */}
-          <div className="absolute top-1/2 left-0 w-full h-1 bg-gradient-to-r from-red-500 to-blue-500 transform -translate-y-1/2 hidden md:block"></div>
+          {/* Gradient Connection Line */}
+          <div className="absolute top-1/2 left-0 w-full h-1 bg-gradient-to-r from-red-500 to-blue-500 transform -translate-y-1/2 hidden md:block" />
 
           {/* Steps */}
           <div className="grid md:grid-cols-5 gap-8 relative">
@@ -95,21 +97,16 @@ const HowItWorks: React.FC = () => {
                     <h3 className="text-xl font-bold text-white mb-3 text-center">{step.title}</h3>
                     <p className="text-gray-400 text-center">{step.description}</p>
                   </div>
-
-                  {/* Connecting Arrow */}
-                  {index < steps.length - 1 && (
-                    <div className="hidden md:block absolute top-1/2 -right-4 transform -translate-y-1/2 z-10">
-                      <ArrowRight className="w-6 h-6 text-blue-500" />
-                    </div>
-                  )}
                 </div>
               );
             })}
           </div>
         </div>
 
-        <div className="text-center mt-16 text-gray-400 max-w-3xl mx-auto">
-          With Neuroxion, small business owners can focus on what they do best while we handle the rest.
+
+
+        <div className="text-xl text-center mt-16 text-gray-400 max-w-5xl mx-auto">
+          With Neuroxion, small business owners can focus on what they do best while we handle the rest
         </div>
       </div>
     </section>
